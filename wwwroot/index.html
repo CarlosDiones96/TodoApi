@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo de Api feita em C#</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+
+<body>
+
+
+    <div class="container py-4 mt-4 rounded bg-dark">
+        <h1 class="text-warning">Meus todos</h1>
+        <hr/>
+        <h3 class="text-white">Adicionar</h3>
+        <form action="javascript:void(0);" method="POST" onsubmit="addItem()" class="w-100">
+            <input type="text" id="add-name" placeholder="Novo todo">
+            <input class="btn btn-primary" type="submit" value="Adicionar">
+        </form>
+        <span id="validationMessage"></span>
+
+    </div>
+
+    <div class="container py-4 rounded bg-warning">
+        <div id="editForm">
+            <h3>Editar</h3>
+            <form action="javascript:void(0);" onsubmit="updateItem()" class="w-100">
+                <input type="hidden" id="edit-id">
+                <input type="checkbox" id="edit-isComplete">
+                <input type="text" id="edit-name">
+                <input class="btn btn-primary"  type="submit" value="Salvar">
+                <a onclick="closeInput()" aria-label="Fechar">&#10006;</a>
+            </form>
+        </div>
+
+        <p id="counter"></p>
+
+        <table class="table bg-white rounded">
+            <tr>
+                <th>Completo?</th>
+                <th>Tarefa</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tbody id="todos"></tbody>
+        </table>
+    </div>
+
+
+
+   
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+    </script>
+</body>
+
+</html>
